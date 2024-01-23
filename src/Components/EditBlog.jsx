@@ -57,7 +57,9 @@ export default function EditBlog({ props, toSwitch }) {
           onChange={(e) => setNewContent(e.target.value)}
         ></textarea>
 
-        <button type="submit">Save</button>
+        <button type="submit" className="btn btn-outline btn-warning">
+          Save
+        </button>
       </form>
     </div>
   );

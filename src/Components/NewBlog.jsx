@@ -1,6 +1,6 @@
 import Footer from "./Footer";
 import Navbar from "./Navbar";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useLocalStorage } from "../Hooks/useLocalStorage";
 export default function NewBlog() {
   const [title, setTitle] = useState("");
@@ -11,22 +11,31 @@ export default function NewBlog() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if ((title, description, content !== "")) {
-      setAllBlogs((prevBlogs) => [
-        ...prevBlogs,
-        {
-          title: title,
-          description: description,
-          content: content,
-          id: crypto.randomUUID(),
-        },
-      ]);
+      allBlogs
+        ? setAllBlogs((prevBlogs) => [
+            ...prevBlogs,
+            {
+              title: title,
+              description: description,
+              content: content,
+              id: crypto.randomUUID(),
+            },
+          ])
+        : setAllBlogs([
+            {
+              title: title,
+              description: description,
+              content: content,
+              id: crypto.randomUUID(),
+            },
+          ]);
     }
 
     setTitle("");
     setDescription("");
     setContent("");
   };
-
+  console.log(allBlogs);
   return (
     <>
       <Navbar />

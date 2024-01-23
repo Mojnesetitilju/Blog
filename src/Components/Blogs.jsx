@@ -23,19 +23,20 @@ export default function Blogs() {
     setForEditing(p);
     setBlogs(array);
   }
-  console.log(blogs);
+
   return (
     <>
       <Navbar />
       {forEditing && <EditBlog props={postToEdit} toSwitch={toSwitch} />}
-      {blogs.length !== 0 ? (
+      {blogs ? (
         blogs.map((m) => {
           return (
             <div className="flex justify-center text-wrap mb-5">
-              <div className="card w-96 bg-base-100 shadow-xl">
+              <div className="collapse collapse-arrow bg-base-200">
+                <input type="radio" name="my-accordion-2" checked="checked" />
                 <div className="card-body text-balance">
-                  <h2 className="card-title">{m.title}</h2>
-                  <h6 className="card-title">{m.description}</h6>
+                  <h1 className="card-title text-4xl break-words">{m.title}</h1>
+                  <h2 className="card-title text-2xl ">{m.description}</h2>
                   <p className=" break-words">{m.content}</p>
                   <div className="card-actions justify-end">
                     <button
